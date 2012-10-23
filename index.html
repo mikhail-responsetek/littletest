@@ -27,7 +27,8 @@
         	var img = new Image();
 			var heart = new Image();
 			var countme=0;
-			var thetimer=0;	
+			var thetimer=0;
+			var ani;	
 			img.onload = function() {
 					mheight=img.height*(window.innerWidth/img.width);
     				context.drawImage(img, 0, 0, window.innerWidth,mheight);
@@ -53,7 +54,6 @@
         		}
         		
         	}
-        	ani= window.setInterval(bigHeart,80);
         	
         	function bigHeart(){
         		thetimer++;
@@ -62,7 +62,7 @@
     			context.drawImage(heart,((window.innerWidth)/5),((window.innerHeight)/5), (10*thetimer),(10*thetimer));
         		
         		if (thetimer==20){
-        			context.fillText("я люблю тебя  Аллочка",((window.innerWidth)/3),((window.innerHeight)/1.5));
+        			context.fillText("я люблю тебя  Аллочка",((window.innerWidth)/3),((window.innerHeight)/1.2));
         			clearInterval(ani);
         		}
         	} 
