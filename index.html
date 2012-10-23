@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
         <meta name="viewport" content=="user-scalable=no, width=device-width"/>
-        <title>New Web Project</title>
+        <title>I love you!</title>
     </head>
     <body>
         <canvas id="myCanvas" width="100%" height="100%">test</canvas>
@@ -51,7 +51,7 @@
         		countme++;
         		context.drawImage(heart,theX,theY);
         		if (countme==5){
-        			ani= setInterval(bigHeart,80);
+        			ani= setInterval(bigHeart,100);
         		}
         		
         	}
@@ -62,7 +62,7 @@
         		mheight=img.height*(window.innerWidth/img.width);
     			context.drawImage(heart,((window.innerWidth)/6),((window.innerHeight)/6), (5*thetimer),(5*thetimer));
         		
-        		if (thetimer==40){
+        		if (thetimer==50){
         			alert("Я люблю тебя  Аллочка!");
         			clearInterval(ani);
         		}
