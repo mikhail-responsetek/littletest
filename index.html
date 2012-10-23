@@ -19,8 +19,15 @@
         	context.canvas.width=window.innerWidth;
         	context.canvas.height=window.innerHeight;
         	context.fillRect(0,0,150,100);
+        	context.lineWidth=4;
+        	context.fillStyle="#FF0000";
+        	
+        	
+        	
         	var img = new Image();
-			var heart = new Image();	
+			var heart = new Image();
+			var countme=0;
+			var thetimer=0;	
 			img.onload = function() {
 					mheight=img.height*(window.innerWidth/img.width);
     				context.drawImage(img, 0, 0, window.innerWidth,mheight);
@@ -36,13 +43,29 @@
             	drawHeart(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
         	}, false);
         	
+        	
+        	
         	function drawHeart(theX,theY){
-        		
+        		countme++;
         		context.drawImage(heart,theX,theY);
-        		
-        		alert(theX);
+        		if (countme==5){
+        			ani= setInterval(bigHeart,80);
+        		}
         		
         	}
+        	ani= window.setInterval(bigHeart,80);
+        	
+        	function bigHeart(){
+        		thetimer++;
+        		context.font="40px helvetica";
+        		mheight=img.height*(window.innerWidth/img.width);
+    			context.drawImage(heart,((window.innerWidth)/5),((window.innerHeight)/5), (10*thetimer),(10*thetimer));
+        		
+        		if (thetimer==20){
+        			context.fillText("я люблю тебя  Аллочка",((window.innerWidth)/3),((window.innerHeight)/1.5));
+        			clearInterval(ani);
+        		}
+        	} 
 			
 			
 			img.src = "http://cs9222.userapi.com/u41740711/93983771/x_d0a66592.jpg"; //transparent png
