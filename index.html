@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    	<style type='text/css'>
+    		body{position:absolute;left:0px;top:0px;width:100%;height:100%;}
+    	</style>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+        <meta name="viewport" content=="user-scalable=no, width=device-width"/>
+        <title>New Web Project</title>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="100%" height="100%">test</canvas>
+        <script>
+        
+           	var elem = document.getElementById('myCanvas');
+        	var context = elem.getContext('2d');
+        	context.canvas.width=window.innerWidth;
+        	context.canvas.height=window.innerHeight;
+        	context.fillRect(0,0,150,100);
+        	var img = new Image();
+			var heart = new Image();	
+			img.onload = function() {
+					mheight=img.height*(window.innerWidth/img.width);
+    				context.drawImage(img, 0, 0, window.innerWidth,mheight);
+			}
+			
+			heart.src = "heart.png"; 
+			
+			document.addEventListener('touchstart', function(e) {
+            	drawHeart(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+        	}, false);
+        	
+        	function drawHeart(theX,theY){
+        		
+        		context.drawImage(heart,theX,theY);
+        		
+        	}
+			
+			
+			img.src = "http://cs9222.userapi.com/u41740711/93983771/x_d0a66592.jpg"; //transparent png
+
+        </script>
+    </body>
+</html>
